@@ -12,6 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/task")
+@CrossOrigin(origins = "*")
 public class TaskController {
     @Autowired
     private DbService service;
@@ -23,7 +24,7 @@ public class TaskController {
         return taskMapper.mapToTaskDtoList(service.getAllTasks());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask")
+    @RequestMapping(method = RequestMethod.POST, value = "getTask")
     public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException {
         return taskMapper.mapTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
@@ -34,7 +35,7 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
-    public TaskDto updateTask(@RequestParam TaskDto taskDto) {
+    public TaskDto updateTask(@RequestBody TaskDto taskDto) {
         return taskMapper.mapTaskDto(service.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
