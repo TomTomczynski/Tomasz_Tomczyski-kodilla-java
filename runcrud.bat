@@ -22,7 +22,7 @@ call %CATALINA_HOME%\bin\shutdown.bat
 :copyfile
 copy -build\libs\crud.war %CATALINA_HOME%\webapps
 if "%ERRORLEVEL%" == "0" goto runtomcat
-echo Cannor copy file
+echo Cannot copy file
 goto fail
 
 :runtomcat
