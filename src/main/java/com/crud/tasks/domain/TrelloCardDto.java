@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Getter
 public class TrelloCardDto {
 
-private String name;
-private String decription;
-private String pos;
-private String listId;
-private BadgesDto badgesDto;
+    private String name;
+    private String decription;
+    private String pos;
+    private String listId;
+
 }
