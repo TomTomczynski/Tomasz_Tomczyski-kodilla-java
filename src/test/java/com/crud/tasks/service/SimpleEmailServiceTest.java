@@ -1,7 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,7 +31,7 @@ public class SimpleEmailServiceTest {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setTo(mail.getSubject());
-        mailMessage.setTo(mail.getMesage());
+        mailMessage.setTo(mail.getMessage());
         Optional.ofNullable(mail.getToCc()).ifPresent(email -> mailMessage.setCc(email));
 
         // Whena
